@@ -10,8 +10,9 @@ ext {
 
     RX                  = '3.1.3'
 
-    RETROFIT            ='2.9.0'
+    RETROFIT            = '2.9.0'
     RXRETROFIT          = '3.0.0'
+    OKHTTP              = '4.9.3'
 
     PAGING              = '3.1.0'
 
@@ -49,6 +50,10 @@ ext {
             ],
 
             RXRETROFIT : "com.github.akarnokd:rxjava3-retrofit-adapter:$RXRETROFIT",
+
+            OKHTTP : [
+                    "com.squareup.okhttp3:okhttp:$OKHTTP"
+            ],
 
             PAGING : "androidx.paging:paging-runtime:$PAGING"
     ]

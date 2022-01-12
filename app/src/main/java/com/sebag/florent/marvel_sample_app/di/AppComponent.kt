@@ -1,5 +1,7 @@
 package com.sebag.florent.marvel_sample_app.di
 
+import com.sebag.florent.data.di.RepositoryImplModule
+import com.sebag.florent.domain.di.UseCaseModule
 import com.sebag.florent.marvel_sample_app.MarvelApp
 import com.sebag.florent.presenter.di.BuilderModule
 import com.sebag.florent.presenter.di.ViewModelModule
@@ -13,8 +15,10 @@ import javax.inject.Singleton
     modules = [
         AndroidInjectionModule::class,
         AppModule::class,
+        RepositoryImplModule::class,
+        UseCaseModule::class,
         BuilderModule::class,
-        ViewModelModule::class
+        ViewModelModule::class,
     ]
 )
 interface AppComponent {

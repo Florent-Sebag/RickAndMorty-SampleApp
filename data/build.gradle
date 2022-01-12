@@ -21,6 +21,11 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'API_URL', '"http://gateway.marvel.com/v1/public/"'
+        }
+
+        debug {
+            buildConfigField 'String', 'API_URL', '"http://gateway.marvel.com/v1/public/"'
         }
     }
 }
@@ -37,6 +42,8 @@ dependencies {
     implementation project(':domain')
 
     implementation globalDependencies.RX
+    implementation globalDependencies.RETROFIT
+    implementation globalDependencies.RXRETROFIT
 
     implementation globalDependencies.DAGGER
     kapt globalDependencies.DAGGERK

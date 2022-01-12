@@ -43,6 +43,7 @@ dependencies {
     implementation project(':domain')
 
     implementation globalDependencies.NAVIGATION
+    implementation globalDependencies.RX
 
     implementation globalDependencies.DAGGER
     kapt globalDependencies.DAGGERK

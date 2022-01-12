@@ -4,9 +4,11 @@ ext {
     // Versions - Application
     //==============================================================================================
 
-    NAVIGATION = '2.3.5'
+    NAVIGATION =    '2.3.5'
 
-    DAGGER = '2.28.3'
+    DAGGER =        '2.28.3'
+
+    RX =            '3.0.0'
 
     //==============================================================================================
     // Dependencies
@@ -28,6 +30,12 @@ ext {
             DAGGERK : [
                     "com.google.dagger:dagger-android-processor:$DAGGER",
                     "com.google.dagger:dagger-compiler:$DAGGER"
+            ],
+
+            RX : [
+                    "io.reactivex.rxjava3:rxjava:$RX",
+                    "io.reactivex.rxjava3:rxandroid:$RX",
+                    "io.reactivex.rxjava3:rxkotlin:$RX"
             ]
     ]
 }

@@ -52,9 +52,10 @@ ext {
             RXRETROFIT : "com.github.akarnokd:rxjava3-retrofit-adapter:$RXRETROFIT",
 
             OKHTTP : [
-                    "com.squareup.okhttp3:okhttp:$OKHTTP"
-            ],
+                    "com.squareup.okhttp3:okhttp:$OKHTTP",
+                    "com.squareup.okhttp3:logging-interceptor:$OKHTTP"
 
+            ],
             PAGING : "androidx.paging:paging-runtime:$PAGING"
     ]
 }

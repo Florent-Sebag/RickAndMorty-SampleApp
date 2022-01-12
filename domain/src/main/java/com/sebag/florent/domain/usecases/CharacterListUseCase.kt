@@ -1,5 +1,6 @@
 package com.sebag.florent.domain.usecases
 
+import com.sebag.florent.domain.models.CharacterModel
 import com.sebag.florent.domain.repositories.MarvelRepository
 import io.reactivex.rxjava3.core.Single
 import javax.inject.Inject
@@ -9,6 +10,6 @@ class CharacterListUseCase
     private val marvelRepository: MarvelRepository
 ){
 
-    fun getCharacterList() : Single<String> = marvelRepository.fetchCharacterList()
+    fun getCharacterList() : Single<List<CharacterModel>> = marvelRepository.fetchCharacterList()
 
 }

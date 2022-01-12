@@ -51,6 +51,9 @@ dependencies {
     implementation project(":domain")
     implementation project(":presenter")
 
+    implementation globalDependencies.OKHTTP
+    implementation globalDependencies.RETROFIT
+    implementation globalDependencies.RXRETROFIT
     implementation globalDependencies.DAGGER
     kapt globalDependencies.DAGGERK
 }

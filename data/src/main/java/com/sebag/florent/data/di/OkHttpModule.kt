@@ -16,10 +16,11 @@ class OkHttpModule {
             .addInterceptor { chain ->
                 val url = chain
                     .request()
-                    .url()
+                    .url
                     .newBuilder()
                     .addQueryParameter("ts", "1")
                     .addQueryParameter("apikey", BuildConfig.apiKey)
+                    .addQueryParameter("hash", BuildConfig.apiKeyHash)
                     .build()
                 chain.proceed(chain.request().newBuilder().url(url).build())
             }

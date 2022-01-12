@@ -21,8 +21,10 @@ class HomeVM
         characterListUseCase.getCharacterList()
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(
-                onSuccess = { _characterList.value = it },
-                onError = { }
+                onSuccess = {
+                    _characterList.value = it[0].name },
+                onError = {
+                }
             )
             .addToDisposable()
     }

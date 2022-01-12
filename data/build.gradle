@@ -41,6 +41,7 @@ dependencies {
     implementation project(':domain')
 
     implementation globalDependencies.RX
+    implementation globalDependencies.OKHTTP
     implementation globalDependencies.RETROFIT
     implementation globalDependencies.RXRETROFIT
     implementation globalDependencies.PAGING

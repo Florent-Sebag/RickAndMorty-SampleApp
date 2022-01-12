@@ -1,9 +1,9 @@
 package com.sebag.florent.presenter.view.home
 
-import androidx.lifecycle.ViewModel
+import com.sebag.florent.presenter.view.base.BaseVM
 import javax.inject.Inject
 
 class HomeVM
 @Inject constructor(
-): ViewModel() {
+): BaseVM() {
 }

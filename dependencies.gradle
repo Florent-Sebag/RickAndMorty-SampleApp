@@ -1,0 +1,41 @@
+ext {
+
+    //==============================================================================================
+    // Versions - Application
+    //==============================================================================================
+
+    NAVIGATION =    '2.3.5'
+
+    DAGGER =        '2.28.3'
+
+    RX =            '3.0.0'
+
+    //==============================================================================================
+    // Dependencies
+    //==============================================================================================
+
+    globalDependencies = [
+
+            NAVIGATION : [
+                    "androidx.navigation:navigation-fragment-ktx:$NAVIGATION",
+                    "androidx.navigation:navigation-ui-ktx:$NAVIGATION"
+            ],
+
+            DAGGER : [
+                    "com.google.dagger:dagger:$DAGGER",
+                    "com.google.dagger:dagger-android:$DAGGER",
+                    "com.google.dagger:dagger-android-support:$DAGGER"
+            ],
+
+            DAGGERK : [
+                    "com.google.dagger:dagger-android-processor:$DAGGER",
+                    "com.google.dagger:dagger-compiler:$DAGGER"
+            ],
+
+            RX : [
+                    "io.reactivex.rxjava3:rxjava:$RX",
+                    "io.reactivex.rxjava3:rxandroid:$RX",
+                    "io.reactivex.rxjava3:rxkotlin:$RX"
+            ]
+    ]
+}

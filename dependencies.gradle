@@ -56,6 +56,9 @@ ext {
                     "com.squareup.okhttp3:logging-interceptor:$OKHTTP"
 
             ],
-            PAGING : "androidx.paging:paging-runtime:$PAGING"
+            PAGING : [
+                    "androidx.paging:paging-runtime:$PAGING",
+                    "androidx.paging:paging-rxjava3:$PAGING"
+            ]
     ]
 }

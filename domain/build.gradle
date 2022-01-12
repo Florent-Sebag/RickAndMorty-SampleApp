@@ -33,6 +33,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     implementation globalDependencies.RX
+    implementation globalDependencies.PAGING
 
     implementation globalDependencies.DAGGER
     kapt globalDependencies.DAGGERK

@@ -2,9 +2,12 @@ package com.sebag.florent.presenter.view.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.paging.PagingData
+import com.sebag.florent.domain.models.CharacterModel
 import com.sebag.florent.domain.usecases.CharacterListUseCase
 import com.sebag.florent.presenter.view.base.BaseVM
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.Flowable
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import javax.inject.Inject
 
@@ -18,6 +21,7 @@ class HomeVM
         get() = _characterList
 
     fun launchFetchCharacterList() {
+
         characterListUseCase.getCharacterList()
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(
@@ -27,5 +31,9 @@ class HomeVM
                 }
             )
             .addToDisposable()
+    }
+
+    fun launchPagingCharacterList() : Flowable<PagingData<CharacterModel>> {
+        return characterListUseCase.getPagingCharacterList()
     }
 }

@@ -13,6 +13,8 @@ ext {
     RETROFIT            ='2.9.0'
     RXRETROFIT          = '3.0.0'
 
+    PAGING              = '3.1.0'
+
     //==============================================================================================
     // Dependencies
     //==============================================================================================
@@ -46,6 +48,8 @@ ext {
                     "com.squareup.retrofit2:converter-moshi:$RETROFIT"
             ],
 
-            RXRETROFIT : "com.github.akarnokd:rxjava3-retrofit-adapter:$RXRETROFIT"
+            RXRETROFIT : "com.github.akarnokd:rxjava3-retrofit-adapter:$RXRETROFIT",
+
+            PAGING : "androidx.paging:paging-runtime:$PAGING"
     ]
 }

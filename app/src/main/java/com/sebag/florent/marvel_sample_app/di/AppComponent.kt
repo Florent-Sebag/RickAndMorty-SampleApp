@@ -3,6 +3,7 @@ package com.sebag.florent.marvel_sample_app.di
 import com.sebag.florent.data.di.OkHttpModule
 import com.sebag.florent.data.di.RepositoryImplModule
 import com.sebag.florent.data.di.RetrofitModule
+import com.sebag.florent.data.di.ServiceModule
 import com.sebag.florent.domain.di.UseCaseModule
 import com.sebag.florent.marvel_sample_app.MarvelApp
 import com.sebag.florent.presenter.di.BuilderModule
@@ -20,6 +21,7 @@ import javax.inject.Singleton
         RepositoryImplModule::class,
         OkHttpModule::class,
         RetrofitModule::class,
+        ServiceModule::class,
         UseCaseModule::class,
         BuilderModule::class,
         ViewModelModule::class,

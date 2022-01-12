@@ -6,4 +6,6 @@ import javax.inject.Inject
 class HomeVM
 @Inject constructor(
 ): BaseVM() {
+
+    val tmp = "hello from databind"
 }

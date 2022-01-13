@@ -10,10 +10,6 @@ class HomeVM
     private val characterListUseCase: CharacterListUseCase
 ): BaseVM() {
 
-//    private val _characterList = MutableLiveData<String>()
-//    val characterList : LiveData<String>
-//        get() = _characterList
-
     fun launchPagingCharacterList(lifecycle: Lifecycle, characterAdapter: CharacterAdapter) {
         characterListUseCase.getPagingCharacterList().subscribe {
             characterAdapter.submitData(lifecycle, it)

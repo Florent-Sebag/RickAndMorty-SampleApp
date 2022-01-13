@@ -18,6 +18,6 @@ class RepositoryImplModule {
 
     @Singleton
     @Provides
-    fun provideMarvelRepository(characterPagingSource: CharacterPagingSource) : MarvelRepository =
-        MarvelRepositoryImpl(characterPagingSource)
+    fun provideMarvelRepository(service: MarvelApi, characterPagingSource: CharacterPagingSource) : MarvelRepository =
+        MarvelRepositoryImpl(service, characterPagingSource)
 }

@@ -8,4 +8,6 @@ import io.reactivex.rxjava3.core.Single
 interface MarvelRepository {
 
     fun retrieveCharacterList() : Flowable<PagingData<CharacterModel>>
+
+    fun retrieveCharacterDetails(id: Int) : Single<CharacterModel>
 }

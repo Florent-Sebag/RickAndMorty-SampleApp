@@ -8,6 +8,24 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.sebag.florent.presenter.view.home.HomeFragment"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+
+        <action
+            android:id="@+id/goToDetail"
+            app:destination="@id/detailFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.sebag.florent.presenter.view.detail.DetailFragment"
+        tools:layout="@layout/fragment_detail">
+
+        <argument
+            android:name="id"
+            app:argType="integer" />
+
+    </fragment>
+
 
 </navigation>

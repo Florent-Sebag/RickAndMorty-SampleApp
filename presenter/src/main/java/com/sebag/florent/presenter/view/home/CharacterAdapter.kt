@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
+import androidx.navigation.findNavController
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -21,8 +22,6 @@ fun loadImage(view: ImageView, url: String?) {
 class CharacterAdapter :
     PagingDataAdapter<CharacterModel, CharacterAdapter.CharacterViewHolder>(CharacterComparator) {
 
-
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         CharacterViewHolder(
             ItemCharacterBinding.inflate(
@@ -39,6 +38,13 @@ class CharacterAdapter :
 
         fun bind(item: CharacterModel) {
             binding.character = item
+            binding.viewholder = this
+        }
+
+        fun onClickItem(id: Int) {
+
+            val direction = HomeFragmentDirections.goToDetail(id)
+            itemView.findNavController().navigate(direction)
         }
     }
 

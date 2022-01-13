@@ -17,6 +17,7 @@ fun loadImage(view: ImageView, url: String?) {
     if (url != "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available") {
         Glide.with(view.context).load(url).into(view)
     }
+    //TODO make it clean
 }
 
 class CharacterAdapter :

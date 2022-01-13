@@ -25,7 +25,7 @@ class CharacterPagingSource
         return LoadResult.Page(
             data = response.data.results,
             prevKey = if (position == 0) null else position - 20,
-            nextKey = if (position >= response.data.limit) null else position + 20
+            nextKey = if (position >= response.data.total) null else position + 20
             //TODO Change nextkey to the true limit
         )
     }

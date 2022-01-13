@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
+import androidx.navigation.findNavController
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -41,6 +42,9 @@ class CharacterAdapter :
         }
 
         fun onClickItem(id: Int) {
+
+            val direction = HomeFragmentDirections.goToDetail(id)
+            itemView.findNavController().navigate(direction)
         }
     }
 

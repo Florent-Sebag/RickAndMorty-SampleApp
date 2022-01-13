@@ -2,16 +2,15 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 
 android {
     compileSdkVersion 31
-    buildToolsVersion "30.0.1"
+    buildToolsVersion "30.0.2"
 
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 31
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -21,6 +20,11 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'API_URL', '"http://gateway.marvel.com/v1/public/"'
+        }
+
+        debug {
+            buildConfigField 'String', 'API_URL', '"http://gateway.marvel.com/v1/public/"'
         }
     }
 }
@@ -37,6 +41,10 @@ dependencies {
     implementation project(':domain')
 
     implementation globalDependencies.RX
+    implementation globalDependencies.OKHTTP
+    implementation globalDependencies.RETROFIT
+    implementation globalDependencies.RXRETROFIT
+    implementation globalDependencies.PAGING
 
     implementation globalDependencies.DAGGER
     kapt globalDependencies.DAGGERK

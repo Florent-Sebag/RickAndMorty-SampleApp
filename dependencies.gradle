@@ -16,6 +16,8 @@ ext {
 
     PAGING              = '3.1.0'
 
+    MATERIAL            = '1.4.0'
+
     //==============================================================================================
     // Dependencies
     //==============================================================================================
@@ -56,9 +58,12 @@ ext {
                     "com.squareup.okhttp3:logging-interceptor:$OKHTTP"
 
             ],
+
             PAGING : [
                     "androidx.paging:paging-runtime:$PAGING",
                     "androidx.paging:paging-rxjava3:$PAGING"
-            ]
+            ],
+
+            MATERIAL : "com.google.android.material:material:$MATERIAL"
     ]
 }

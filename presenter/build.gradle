@@ -43,6 +43,7 @@ dependencies {
     implementation globalDependencies.NAVIGATION
     implementation globalDependencies.RX
     implementation globalDependencies.PAGING
+    implementation globalDependencies.MATERIAL
 
     implementation globalDependencies.DAGGER
     kapt globalDependencies.DAGGERK

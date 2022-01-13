@@ -1,6 +1,5 @@
 package com.sebag.florent.presenter.view.detail
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.sebag.florent.domain.models.CharacterModel

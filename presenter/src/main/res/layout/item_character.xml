@@ -6,16 +6,18 @@
         <variable
             name="character"
             type="com.sebag.florent.domain.models.CharacterModel" />
+
         <variable
-            name="tmp"
-            type="String" />
+            name="viewholder"
+            type="com.sebag.florent.presenter.view.home.CharacterAdapter.CharacterViewHolder" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp">
+        android:layout_margin="8dp"
+        android:onClick="@{() -> viewholder.onClickItem(character.id)}">
 
         <LinearLayout
             android:layout_width="match_parent"

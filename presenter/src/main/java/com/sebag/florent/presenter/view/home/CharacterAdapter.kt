@@ -21,8 +21,6 @@ fun loadImage(view: ImageView, url: String?) {
 class CharacterAdapter :
     PagingDataAdapter<CharacterModel, CharacterAdapter.CharacterViewHolder>(CharacterComparator) {
 
-
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         CharacterViewHolder(
             ItemCharacterBinding.inflate(
@@ -39,6 +37,10 @@ class CharacterAdapter :
 
         fun bind(item: CharacterModel) {
             binding.character = item
+            binding.viewholder = this
+        }
+
+        fun onClickItem(id: Int) {
         }
     }
 

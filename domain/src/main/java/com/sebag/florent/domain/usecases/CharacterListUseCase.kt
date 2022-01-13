@@ -12,8 +12,5 @@ class CharacterListUseCase
     private val marvelRepository: MarvelRepository
 ){
 
-    fun getCharacterList() : Single<List<CharacterModel>> = marvelRepository.fetchCharacterList()
-
     fun getPagingCharacterList() : Flowable<PagingData<CharacterModel>> = marvelRepository.retrieveCharacterList()
-
 }

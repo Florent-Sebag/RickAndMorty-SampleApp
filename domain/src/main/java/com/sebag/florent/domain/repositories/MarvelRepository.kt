@@ -7,7 +7,5 @@ import io.reactivex.rxjava3.core.Single
 
 interface MarvelRepository {
 
-    fun fetchCharacterList() : Single<List<CharacterModel>>
-
     fun retrieveCharacterList() : Flowable<PagingData<CharacterModel>>
 }

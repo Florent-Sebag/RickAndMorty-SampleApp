@@ -54,6 +54,7 @@ dependencies {
     implementation globalDependencies.OKHTTP
     implementation globalDependencies.RETROFIT
     implementation globalDependencies.RXRETROFIT
+    implementation globalDependencies.PAGING
     implementation globalDependencies.DAGGER
     kapt globalDependencies.DAGGERK
 }

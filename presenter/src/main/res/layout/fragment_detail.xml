@@ -4,8 +4,8 @@
 
     <data>
         <variable
-            name="characterId"
-            type="String" />
+            name="viewmodel"
+            type="com.sebag.florent.presenter.view.detail.DetailVM" />
     </data>
 
 
@@ -17,7 +17,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{characterId}"
+            android:text="@{viewmodel.characterDetails.name}"
             tools:text="id"/>
 
     </LinearLayout>

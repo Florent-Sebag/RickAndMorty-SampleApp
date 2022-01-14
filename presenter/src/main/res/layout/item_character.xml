@@ -9,7 +9,7 @@
 
         <variable
             name="viewholder"
-            type="com.sebag.florent.presenter.view.home.CharacterAdapter.CharacterViewHolder" />
+            type="com.sebag.florent.presenter.view.home.adapter.CharacterAdapter.CharacterViewHolder" />
     </data>
 
     <com.google.android.material.card.MaterialCardView

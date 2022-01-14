@@ -4,14 +4,16 @@ import androidx.lifecycle.Lifecycle
 import androidx.paging.LoadState
 import com.sebag.florent.domain.usecases.CharacterListUseCase
 import com.sebag.florent.presenter.view.base.BaseVM
+import com.sebag.florent.presenter.view.home.adapter.CharacterAdapter
 import javax.inject.Inject
 
 class HomeVM
 @Inject constructor(
-    private val characterListUseCase: CharacterListUseCase
+    private val characterListUseCase: CharacterListUseCase,
+    val characterAdapter: CharacterAdapter
 ): BaseVM() {
 
-    fun launchPagingCharacterList(lifecycle: Lifecycle, characterAdapter: CharacterAdapter) {
+    fun launchPagingCharacterList(lifecycle: Lifecycle) {
         characterListUseCase.getPagingCharacterList()
             .subscribe { data ->
             characterAdapter.submitData(lifecycle, data)

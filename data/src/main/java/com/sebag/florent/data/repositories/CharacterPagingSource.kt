@@ -5,7 +5,6 @@ import androidx.paging.rxjava3.RxPagingSource
 import com.sebag.florent.data.api.MarvelApi
 import com.sebag.florent.data.entities.Response
 import com.sebag.florent.domain.models.CharacterModel
-import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.schedulers.Schedulers

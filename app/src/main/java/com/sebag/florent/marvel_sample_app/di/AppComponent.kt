@@ -3,6 +3,7 @@ package com.sebag.florent.marvel_sample_app.di
 import com.sebag.florent.data.di.*
 import com.sebag.florent.domain.di.UseCaseModule
 import com.sebag.florent.marvel_sample_app.MarvelApp
+import com.sebag.florent.presenter.di.AdapterModule
 import com.sebag.florent.presenter.di.BuilderModule
 import com.sebag.florent.presenter.di.ViewModelModule
 import dagger.BindsInstance
@@ -23,6 +24,7 @@ import javax.inject.Singleton
         UseCaseModule::class,
         BuilderModule::class,
         ViewModelModule::class,
+        AdapterModule::class
     ]
 )
 interface AppComponent {

@@ -35,6 +35,5 @@ class MarvelRepositoryImpl
         return service.fetchCharacterDetail(id)
             .subscribeOn(Schedulers.io())
             .map { it.data.results[FlavorUtils.getItemPosition(position)] }
-        //TODO error handling
     }
 }

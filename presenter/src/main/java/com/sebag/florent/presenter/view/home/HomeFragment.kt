@@ -6,12 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.sebag.florent.presenter.R
 import com.sebag.florent.presenter.databinding.FragmentHomeBinding
 import com.sebag.florent.presenter.view.base.BaseFragment
-import javax.inject.Inject
 
-class HomeFragment : BaseFragment<FragmentHomeBinding>() {
-
-    @Inject
-    lateinit var viewModel : HomeVM
+class HomeFragment : BaseFragment<FragmentHomeBinding, HomeVM>() {
 
     override fun layoutRes() = R.layout.fragment_home
 

@@ -4,6 +4,10 @@ import com.sebag.florent.domain.models.CharacterModel
 import com.squareup.moshi.Json
 
 data class Response(
+    @Json(name = "code")
+    val code: String,
+    @Json(name="message")
+    val message: String,
     @Json(name = "status")
     val status: String,
     @Json(name = "data")

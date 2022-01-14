@@ -6,15 +6,10 @@ import androidx.navigation.fragment.navArgs
 import com.sebag.florent.presenter.R
 import com.sebag.florent.presenter.databinding.FragmentDetailBinding
 import com.sebag.florent.presenter.view.base.BaseFragment
-import kotlinx.android.synthetic.main.fragment_detail.*
-import javax.inject.Inject
 
-class DetailFragment : BaseFragment<FragmentDetailBinding>() {
+class DetailFragment : BaseFragment<FragmentDetailBinding, DetailVM>() {
 
     private val args: DetailFragmentArgs by navArgs()
-
-    @Inject
-    lateinit var viewModel : DetailVM
 
     override fun layoutRes(): Int = R.layout.fragment_detail
 

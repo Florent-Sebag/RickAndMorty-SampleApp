@@ -2,12 +2,10 @@ package com.sebag.florent.presenter.view.home
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sebag.florent.presenter.R
 import com.sebag.florent.presenter.databinding.FragmentHomeBinding
 import com.sebag.florent.presenter.view.base.BaseFragment
-import javax.inject.Inject
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeVM>() {
 

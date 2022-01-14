@@ -14,8 +14,10 @@ import javax.inject.Inject
 
 class CharacterPagingSource
 @Inject constructor(
-    private val service: MarvelApi
+    private val service: MarvelApi,
+    private val moshi: Moshi
 ): RxPagingSource<Int, CharacterModel>() {
+
     override fun loadSingle(params: LoadParams<Int>): Single<LoadResult<Int, CharacterModel>> {
         val position = params.key ?: 0
 
@@ -23,10 +25,7 @@ class CharacterPagingSource
             .subscribeOn(Schedulers.io())
             .map { toLoadResult(it, position) }
             .onErrorReturn {
-                val moshi: Moshi = Moshi.Builder().build()
-                val adapter: JsonAdapter<Response> = moshi.adapter(Response::class.java)
-                val error = adapter.fromJson((it as HttpException).response()?.errorBody()?.string()!!)
-                LoadResult.Error(Throwable(error!!.message))
+                LoadResult.Error(Throwable(parseError(it)))
             }
     }
 
@@ -35,8 +34,18 @@ class CharacterPagingSource
             data = response.data.results,
             prevKey = if (position == 0) null else position - 20,
             nextKey = if (position >= response.data.total) null else position + 20
-            //TODO Change nextkey to the true limit
         )
+    }
+
+    private fun parseError(e : Throwable) : String {
+        val errorString = (e as HttpException).response()?.errorBody()?.string()
+        var error = "Internal error"
+
+        if (errorString != null) {
+            error = moshi.adapter(Response::class.java)
+                .fromJson(errorString)?.message!!
+        }
+        return (error)
     }
 
     override fun getRefreshKey(state: PagingState<Int, CharacterModel>): Int? {

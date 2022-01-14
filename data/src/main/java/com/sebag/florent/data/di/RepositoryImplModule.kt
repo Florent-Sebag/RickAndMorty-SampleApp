@@ -4,6 +4,7 @@ import com.sebag.florent.data.api.MarvelApi
 import com.sebag.florent.data.repositories.CharacterPagingSource
 import com.sebag.florent.data.repositories.MarvelRepositoryImpl
 import com.sebag.florent.domain.repositories.MarvelRepository
+import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -13,8 +14,8 @@ class RepositoryImplModule {
 
     @Provides
     @Singleton
-    fun provideCharacterPagingSource(service: MarvelApi) : CharacterPagingSource =
-        CharacterPagingSource(service)
+    fun provideCharacterPagingSource(service: MarvelApi, moshi: Moshi) : CharacterPagingSource =
+        CharacterPagingSource(service, moshi)
 
     @Singleton
     @Provides

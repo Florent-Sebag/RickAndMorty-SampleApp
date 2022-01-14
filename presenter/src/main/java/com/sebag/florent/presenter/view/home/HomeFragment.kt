@@ -2,6 +2,7 @@ package com.sebag.florent.presenter.view.home
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sebag.florent.presenter.R
 import com.sebag.florent.presenter.databinding.FragmentHomeBinding
@@ -29,5 +30,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         binding.recycler.adapter =  mAdapter
 
         viewModel.launchPagingCharacterList(lifecycle, mAdapter)
+        observeError()
+    }
+
+    private fun observeError() {
+        viewModel.onError.observe(viewLifecycleOwner, {
+            Toast.makeText(context, it, Toast.LENGTH_LONG).show()
+        })
     }
 }

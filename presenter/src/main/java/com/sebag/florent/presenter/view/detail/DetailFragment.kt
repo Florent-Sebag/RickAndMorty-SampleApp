@@ -22,5 +22,13 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
         super.onViewCreated(view, savedInstanceState)
         binding.viewmodel = viewModel
         viewModel.getCharacterDetails(args.id, args.position)
+
+        observeError()
+    }
+
+    private fun observeError() {
+        viewModel.onError.observe(viewLifecycleOwner, {
+            showToast(it)
+        })
     }
 }

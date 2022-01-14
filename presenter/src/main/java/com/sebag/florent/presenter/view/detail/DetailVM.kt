@@ -18,8 +18,8 @@ class DetailVM
         val characterDetails : LiveData<CharacterModel>
         get() = _characterDetails
 
-    fun getCharacterDetails(id: Int) {
-        detailsUseCase.getCharacterDetail(id)
+    fun getCharacterDetails(id: Int, position: Int) {
+        detailsUseCase.getCharacterDetail(id, position)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy (
                 onSuccess = { _characterDetails.value = it },

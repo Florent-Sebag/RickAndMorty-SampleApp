@@ -32,6 +32,18 @@ android {
         }
     }
 
+    flavorDimensions "appversion"
+    productFlavors {
+        mock {
+            dimension "appversion"
+            applicationIdSuffix ".mock"
+        }
+        prod {
+            dimension "appversion"
+            applicationIdSuffix ".prod"
+        }
+    }
+
     buildFeatures {
         dataBinding true
     }

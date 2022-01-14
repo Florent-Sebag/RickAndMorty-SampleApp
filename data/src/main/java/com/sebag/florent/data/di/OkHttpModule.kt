@@ -1,5 +1,6 @@
 package com.sebag.florent.data.di
 
+import android.content.Context
 import com.sebag.florent.data.BuildConfig
 import dagger.Module
 import dagger.Provides
@@ -11,19 +12,9 @@ class OkHttpModule {
 
     @Singleton
     @Provides
-    fun provideOkHttpClient() : OkHttpClient {
+    fun provideOkHttpClient(context: Context) : OkHttpClient {
         return OkHttpClient.Builder()
-            .addInterceptor { chain ->
-                val url = chain
-                    .request()
-                    .url
-                    .newBuilder()
-                    .addQueryParameter("ts", "1")
-                    .addQueryParameter("apikey", BuildConfig.apiKey)
-                    .addQueryParameter("hash", BuildConfig.apiKeyHash)
-                    .build()
-                chain.proceed(chain.request().newBuilder().url(url).build())
-            }
+            .addInterceptor(CustomOkInterceptor(BuildConfig.apiKey, BuildConfig.apiKeyHash, context))
             .build()
     }
 }

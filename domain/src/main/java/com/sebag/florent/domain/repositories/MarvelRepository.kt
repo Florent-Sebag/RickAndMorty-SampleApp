@@ -9,5 +9,5 @@ interface MarvelRepository {
 
     fun retrieveCharacterList() : Flowable<PagingData<CharacterModel>>
 
-    fun retrieveCharacterDetails(id: Int) : Single<CharacterModel>
+    fun retrieveCharacterDetails(id: Int, position: Int) : Single<CharacterModel>
 }

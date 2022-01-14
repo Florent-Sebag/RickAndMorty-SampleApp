@@ -25,6 +25,10 @@
             android:name="id"
             app:argType="integer" />
 
+        <argument
+            android:name="position"
+            app:argType="integer" />
+
     </fragment>
 
 

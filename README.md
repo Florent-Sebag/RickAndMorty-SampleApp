@@ -40,14 +40,14 @@ The mocked data is sent thanks to a OkHttp Interceptor, because implementing an 
 
 ## Libraries used 
 
-Moshi - handling JSON files
-Okhttp - For adding the Authtoken & MockInterceptor
-Retrofit - For API Calls
+- Moshi - handling JSON files
+- Okhttp - For adding the Authtoken & MockInterceptor
+- Retrofit - For API Calls
 
-Rxjava - for reactive programming 
-Dagger2 - for dependency injection
+- Rxjava - for reactive programming 
+- Dagger2 - for dependency injection
 
-Secret-Gradle-Plugin - For hiding apikeys 
-Paging 3 - for infinite scroll (Implemented with RxJava) 
-Material design - Front elements
-Glide - For printing images
+- Secret-Gradle-Plugin - For hiding apikeys 
+- Paging 3 - for infinite scroll (Implemented with RxJava) 
+- Material design - Front elements
+- Glide - For printing images

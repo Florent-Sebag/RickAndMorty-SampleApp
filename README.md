@@ -18,7 +18,9 @@ There is also an app module that contain the Application class.
 
 This project use the secrets-gradle-plugin library in order to get the ApiKey.
 To run the project, you have to write on 
+
 >local.properties 
+
 your publicKey & privateKey of the Marvel API, like this :
 
 ```

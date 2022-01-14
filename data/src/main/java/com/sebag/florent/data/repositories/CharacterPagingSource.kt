@@ -5,8 +5,11 @@ import androidx.paging.rxjava3.RxPagingSource
 import com.sebag.florent.data.api.MarvelApi
 import com.sebag.florent.data.entities.Response
 import com.sebag.florent.domain.models.CharacterModel
+import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.Moshi
 import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.schedulers.Schedulers
+import retrofit2.HttpException
 import javax.inject.Inject
 
 class CharacterPagingSource
@@ -19,6 +22,12 @@ class CharacterPagingSource
         return service.fetchCharacterListFromApi(position)
             .subscribeOn(Schedulers.io())
             .map { toLoadResult(it, position) }
+            .onErrorReturn {
+                val moshi: Moshi = Moshi.Builder().build()
+                val adapter: JsonAdapter<Response> = moshi.adapter(Response::class.java)
+                val error = adapter.fromJson((it as HttpException).response()?.errorBody()?.string()!!)
+                LoadResult.Error(Throwable(error!!.message))
+            }
     }
 
     private fun toLoadResult(response: Response, position: Int): LoadResult<Int, CharacterModel> {

@@ -6,7 +6,6 @@ import androidx.paging.PagingData
 import androidx.paging.rxjava3.flowable
 import com.sebag.florent.data.api.MarvelApi
 import com.sebag.florent.data.di.FlavorUtils
-import com.sebag.florent.data.entities.PagedResponseEntity
 import com.sebag.florent.domain.models.CharacterModel
 import com.sebag.florent.domain.repositories.MarvelRepository
 import io.reactivex.rxjava3.core.Flowable

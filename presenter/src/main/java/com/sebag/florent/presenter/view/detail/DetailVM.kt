@@ -23,7 +23,7 @@ class DetailVM
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy (
                 onSuccess = { _characterDetails.value = it },
-                onError = {}
+                onError = { _onError.value = "Error from getting character details" }
             )
     }
 }

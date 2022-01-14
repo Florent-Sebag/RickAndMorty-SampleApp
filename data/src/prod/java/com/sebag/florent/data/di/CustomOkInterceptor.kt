@@ -16,7 +16,7 @@ class CustomOkInterceptor(
             .url
             .newBuilder()
             .addQueryParameter("ts", "1")
-            .addQueryParameter("apikey", BuildConfig.apiKey)
+            .addQueryParameter("apikey", BuildConfig.publicKey)
             .addQueryParameter("hash", hashApiKey())
             .build()
         return chain.proceed(chain.request().newBuilder().url(url).build())

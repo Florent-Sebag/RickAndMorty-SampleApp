@@ -34,6 +34,7 @@ android {
             dimension "appversion"
         }
         prod {
+            getIsDefault().set(true)
             dimension "appversion"
         }
     }

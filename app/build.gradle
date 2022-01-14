@@ -39,6 +39,7 @@ android {
             applicationIdSuffix ".mock"
         }
         prod {
+            getIsDefault().set(true)
             dimension "appversion"
             applicationIdSuffix ".prod"
         }

@@ -10,12 +10,17 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
 import dagger.android.support.AndroidSupportInjection
+import javax.inject.Inject
 
-abstract class BaseFragment<T : ViewDataBinding> : Fragment() {
+abstract class BaseFragment<T : ViewDataBinding, U: BaseVM> : Fragment() {
 
     @LayoutRes
     protected abstract fun layoutRes() : Int
+
+    @Inject
+    protected lateinit var viewModel : U
 
     protected lateinit var binding : T
 
@@ -31,6 +36,7 @@ abstract class BaseFragment<T : ViewDataBinding> : Fragment() {
             false
         )
         binding.lifecycleOwner = viewLifecycleOwner
+        observeError()
         return binding.root
     }
 
@@ -39,7 +45,9 @@ abstract class BaseFragment<T : ViewDataBinding> : Fragment() {
         AndroidSupportInjection.inject(this)
     }
 
-    protected fun showToast(msg: String) {
-        Toast.makeText(context, msg, Toast.LENGTH_LONG).show()
+    private fun observeError() {
+        viewModel.onError.observe(viewLifecycleOwner, {
+            Toast.makeText(context, it, Toast.LENGTH_LONG).show()
+        })
     }
 }

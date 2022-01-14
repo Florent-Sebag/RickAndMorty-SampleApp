@@ -9,7 +9,7 @@ import io.reactivex.rxjava3.disposables.Disposable
 abstract class BaseVM : ViewModel(){
 
     private var compositeDisposable = CompositeDisposable()
-    
+
     protected val _onError = MutableLiveData<String>()
     val onError : LiveData<String>
         get() = _onError

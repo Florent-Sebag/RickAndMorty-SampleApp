@@ -9,10 +9,7 @@ import com.sebag.florent.presenter.databinding.FragmentHomeBinding
 import com.sebag.florent.presenter.view.base.BaseFragment
 import javax.inject.Inject
 
-class HomeFragment : BaseFragment<FragmentHomeBinding>() {
-
-    @Inject
-    lateinit var viewModel : HomeVM
+class HomeFragment : BaseFragment<FragmentHomeBinding, HomeVM>() {
 
     override fun layoutRes() = R.layout.fragment_home
 
@@ -30,12 +27,5 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         binding.recycler.adapter =  mAdapter
 
         viewModel.launchPagingCharacterList(lifecycle, mAdapter)
-        observeError()
-    }
-
-    private fun observeError() {
-        viewModel.onError.observe(viewLifecycleOwner, {
-            showToast(it)
-        })
     }
 }

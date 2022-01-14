@@ -27,6 +27,16 @@ android {
             buildConfigField 'String', 'API_URL', '"http://gateway.marvel.com/v1/public/"'
         }
     }
+
+    flavorDimensions "appversion"
+    productFlavors {
+        mock {
+            dimension "appversion"
+        }
+        prod {
+            dimension "appversion"
+        }
+    }
 }
 
 dependencies {

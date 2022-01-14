@@ -6,8 +6,6 @@ import android.content.Context
 import okhttp3.ResponseBody.Companion.toResponseBody
 
 class CustomOkInterceptor(
-    private val apiKey: String,
-    private val apiKeyHash: String,
     private val context: Context
 ) : Interceptor {
 

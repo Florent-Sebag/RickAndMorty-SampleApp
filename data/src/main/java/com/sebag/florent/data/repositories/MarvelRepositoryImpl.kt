@@ -5,6 +5,7 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.rxjava3.flowable
 import com.sebag.florent.data.api.MarvelApi
+import com.sebag.florent.data.di.FlavorUtils
 import com.sebag.florent.data.entities.PagedResponseEntity
 import com.sebag.florent.domain.models.CharacterModel
 import com.sebag.florent.domain.repositories.MarvelRepository
@@ -31,10 +32,10 @@ class MarvelRepositoryImpl
         ).flowable
     }
 
-    override fun retrieveCharacterDetails(id: Int) : Single<CharacterModel> {
+    override fun retrieveCharacterDetails(id: Int, position: Int) : Single<CharacterModel> {
         return service.fetchCharacterDetail(id)
             .subscribeOn(Schedulers.io())
-            .map { it.data.results[0] }
+            .map { it.data.results[FlavorUtils.getItemPosition(position)] }
         //TODO error handling
     }
 }

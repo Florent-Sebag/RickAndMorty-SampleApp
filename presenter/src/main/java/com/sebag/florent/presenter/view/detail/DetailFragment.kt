@@ -21,6 +21,6 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewmodel = viewModel
-        viewModel.getCharacterDetails(args.id)
+        viewModel.getCharacterDetails(args.id, args.position)
     }
 }

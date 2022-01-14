@@ -9,5 +9,6 @@ class CharacterDetailsUseCase @Inject constructor(
     private val marvelRepository: MarvelRepository
 ){
 
-    fun getCharacterDetail(id: Int) : Single<CharacterModel> = marvelRepository.retrieveCharacterDetails(id)
+    fun getCharacterDetail(id: Int, position: Int) : Single<CharacterModel> =
+        marvelRepository.retrieveCharacterDetails(id, position)
 }

@@ -44,7 +44,7 @@ class CharacterAdapter :
 
         fun onClickItem(id: Int) {
 
-            val direction = HomeFragmentDirections.goToDetail(id)
+            val direction = HomeFragmentDirections.goToDetail(id, layoutPosition)
             itemView.findNavController().navigate(direction)
         }
     }

@@ -24,7 +24,7 @@ To run the project, you have to write on
 your publicKey & privateKey of the Marvel API, like this :
 
 ```
-sdk.dir=C\:\\Users\\Sebag\\AppData\\Local\\Android\\Sdk
+sdk.dir=..........
 
 publicKey=[yourpublickey]
 privateKey=[yourprivatekey]

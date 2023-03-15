@@ -27,7 +27,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="194dp"
-                app:imageUrl="@{character.thumbnail.concatedPath}"
+                app:imageUrl="@{character.image}"
                 android:scaleType="centerCrop"/>
 
 

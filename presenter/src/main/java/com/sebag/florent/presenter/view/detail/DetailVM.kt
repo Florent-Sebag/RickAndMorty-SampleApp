@@ -25,5 +25,6 @@ class DetailVM
                 onSuccess = { _characterDetails.value = it },
                 onError = { _onError.value = "Error from getting character details" }
             )
+            .addToDisposable()
     }
 }

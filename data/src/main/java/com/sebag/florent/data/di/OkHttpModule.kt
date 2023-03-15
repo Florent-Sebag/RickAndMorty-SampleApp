@@ -13,6 +13,7 @@ class OkHttpModule {
     @Provides
     fun provideOkHttpClient(context: Context) : OkHttpClient {
         return OkHttpClient.Builder()
+            .addInterceptor(CustomOkInterceptor(context))
             .build()
     }
 }

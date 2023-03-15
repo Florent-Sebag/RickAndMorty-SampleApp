@@ -6,14 +6,3 @@ data class CharacterModel(
     val type : String,
     val image: String
 )
-
-data class Thumbnail(
-    val path : String,
-    val extension: String,
-) {
-    var concatedPath: String? = null
-        get() {
-            field = field ?:  "$path.$extension"
-            return field
-        }
-}

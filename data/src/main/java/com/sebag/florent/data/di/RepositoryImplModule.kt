@@ -14,8 +14,8 @@ class RepositoryImplModule {
 
     @Provides
     @Singleton
-    fun provideCharacterPagingSource(service: MarvelApi, moshi: Moshi) : CharacterPagingSource =
-        CharacterPagingSource(service, moshi)
+    fun provideCharacterPagingSource(service: MarvelApi) : CharacterPagingSource =
+        CharacterPagingSource(service)
 
     @Singleton
     @Provides

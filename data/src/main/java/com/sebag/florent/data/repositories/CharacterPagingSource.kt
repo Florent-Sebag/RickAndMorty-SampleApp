@@ -3,8 +3,10 @@ package com.sebag.florent.data.repositories
 import androidx.paging.PagingState
 import androidx.paging.rxjava3.RxPagingSource
 import com.sebag.florent.data.api.MarvelApi
+import com.sebag.florent.data.entities.ErrorEntity
 import com.sebag.florent.data.entities.ResponseEntity
 import com.sebag.florent.domain.models.CharacterModel
+import com.squareup.moshi.Moshi
 import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.schedulers.Schedulers
 import retrofit2.HttpException
@@ -12,7 +14,8 @@ import javax.inject.Inject
 
 class CharacterPagingSource
 @Inject constructor(
-    private val service: MarvelApi
+    private val service: MarvelApi,
+    private val moshi: Moshi
 ): RxPagingSource<Int, CharacterModel>() {
 
     override fun loadSingle(params: LoadParams<Int>): Single<LoadResult<Int, CharacterModel>> {
@@ -35,19 +38,19 @@ class CharacterPagingSource
     }
 
     private fun parseError(e : Throwable) : String {
-        //TODO Dégueu + test page 43 pour voir gestion d'erreur
-        val errorString = (e as HttpException).response()?.errorBody()?.string()
-        var error = ""
+        //TODO Handle error with toast
+        val jsonError = (e as HttpException).response()?.errorBody()?.string()
+        val error: String = jsonError?.let {
+            moshi.adapter(ErrorEntity::class.java).fromJson(it)?.error ?: SERVER_MOSHI_ERROR
+        } ?: SERVER_ERROR
 
-        errorString?.let {
-            error =  "Internal error"
-        } ?: run {
-            error = "Internal error"
-        }
         return (error)
     }
 
-    override fun getRefreshKey(state: PagingState<Int, CharacterModel>): Int? {
-        return null
+    override fun getRefreshKey(state: PagingState<Int, CharacterModel>): Int? = null
+
+    companion object {
+        private const val SERVER_MOSHI_ERROR = "Moshi & server error"
+        private const val SERVER_ERROR = "Server error"
     }
 }

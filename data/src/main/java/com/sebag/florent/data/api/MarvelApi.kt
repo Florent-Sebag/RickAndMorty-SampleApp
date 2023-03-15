@@ -8,8 +8,8 @@ import retrofit2.http.Query
 
 interface MarvelApi {
 
-    @GET("characters")
-    fun fetchCharacterListFromApi(@Query("offset") offset: Int) : Single<Response>
+    @GET("character")
+    fun fetchCharacterListFromApi(@Query("page") page: Int) : Single<Response>
 
     @GET("characters/{id}")
     fun fetchCharacterDetail(@Path("id") id: Int) : Single<Response>

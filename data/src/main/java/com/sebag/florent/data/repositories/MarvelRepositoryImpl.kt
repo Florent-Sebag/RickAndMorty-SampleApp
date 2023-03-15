@@ -34,6 +34,6 @@ class MarvelRepositoryImpl
     override fun retrieveCharacterDetails(id: Int, position: Int) : Single<CharacterModel> {
         return service.fetchCharacterDetail(id)
             .subscribeOn(Schedulers.io())
-            .map { it.data.results[FlavorUtils.getItemPosition(position)] }
+            .map { it.results[FlavorUtils.getItemPosition(position)] }
     }
 }

@@ -4,14 +4,21 @@ import com.sebag.florent.domain.models.CharacterModel
 import com.squareup.moshi.Json
 
 data class Response(
-    @Json(name = "code")
-    val code: String,
-    @Json(name="message")
-    val message: String,
-    @Json(name = "status")
-    val status: String,
-    @Json(name = "data")
-    val data: PagedResponseEntity
+    @Json(name = "info")
+    val info: ResponseInfoEntity,
+    @Json(name = "results")
+    val results: List<CharacterModel>
+)
+
+data class ResponseInfoEntity(
+    @Json(name = "count")
+    val count: Int,
+    @Json(name = "pages")
+    val pages: Int,
+    @Json(name = "next")
+    val next: String,
+    @Json(name = "prev")
+    val prev: String
 )
 
 data class PagedResponseEntity(

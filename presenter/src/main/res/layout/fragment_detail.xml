@@ -24,7 +24,7 @@
                 android:id="@+id/character_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:imageUrl="@{viewmodel.characterDetails.thumbnail.concatedPath}"
+                app:imageUrl="@{viewmodel.characterDetails.image}"
                 app:layout_constraintTop_toTopOf="parent"
                 />
 
@@ -43,7 +43,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text='@{ viewmodel.characterDetails.description.equals("") ? "No description" : viewmodel.characterDetails.description}'
+                android:text='@{ viewmodel.characterDetails.type.equals("") ? "No description" : viewmodel.characterDetails.type}'
                 tools:text="name"
                 android:padding="16dp"
                 android:textAppearance="?attr/textAppearanceHeadline6"

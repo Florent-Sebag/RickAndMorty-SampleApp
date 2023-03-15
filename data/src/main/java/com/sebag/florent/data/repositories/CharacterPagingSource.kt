@@ -18,7 +18,7 @@ class CharacterPagingSource
 ): RxPagingSource<Int, CharacterModel>() {
 
     override fun loadSingle(params: LoadParams<Int>): Single<LoadResult<Int, CharacterModel>> {
-        val position = params.key ?: 0
+        val position = params.key ?: 1
 
         return service.fetchCharacterListFromApi(position)
             .subscribeOn(Schedulers.io())
@@ -30,19 +30,21 @@ class CharacterPagingSource
 
     private fun toLoadResult(response: Response, position: Int): LoadResult<Int, CharacterModel> {
         return LoadResult.Page(
-            data = response.data.results,
-            prevKey = if (position == 0) null else position - 20,
-            nextKey = if (position >= response.data.total) null else position + 20
+            data = response.results,
+            prevKey = if (position == 1) null else position - 1,
+            nextKey = if (position >= response.info.pages) null else position + 1
         )
     }
 
     private fun parseError(e : Throwable) : String {
+        //TODO Dégueu
         val errorString = (e as HttpException).response()?.errorBody()?.string()
-        var error = "Internal error"
+        var error = ""
 
-        if (errorString != null) {
-            error = moshi.adapter(Response::class.java)
-                .fromJson(errorString)?.message!!
+        errorString?.let {
+            error =  "Internal error"
+        } ?: run {
+            error = "Internal error"
         }
         return (error)
     }

@@ -2,7 +2,6 @@ package com.sebag.florent.data.api
 
 import com.sebag.florent.data.entities.CharacterEntity
 import com.sebag.florent.data.entities.ResponseEntity
-import com.sebag.florent.domain.models.CharacterModel
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
 import retrofit2.http.Path

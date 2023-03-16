@@ -5,7 +5,6 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.rxjava3.flowable
 import com.sebag.florent.data.api.MarvelApi
-import com.sebag.florent.data.di.FlavorUtils
 import com.sebag.florent.domain.models.CharacterModel
 import com.sebag.florent.domain.repositories.MarvelRepository
 import io.reactivex.rxjava3.core.Flowable
@@ -37,7 +36,7 @@ class MarvelRepositoryImpl
             .map { CharacterModel(
                 id = it.id,
                 name = it.name,
-                type = it.type,
+                type = it.species,
                 image = it.image
             )}
     }

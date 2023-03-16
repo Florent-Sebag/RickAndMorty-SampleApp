@@ -7,8 +7,8 @@ data class CharacterEntity(
     val id : Int,
     @Json(name = "name")
     val name : String,
-    @Json(name = "type")
-    val type : String,
+    @Json(name = "species")
+    val species : String,
     @Json(name = "image")
     val image: String
 )

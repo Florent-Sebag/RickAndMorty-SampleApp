@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.sebag.florent.presenter.R
 import com.sebag.florent.presenter.databinding.FragmentHomeBinding
 import com.sebag.florent.presenter.view.base.BaseFragment
-import com.sebag.florent.presenter.view.home.adapter.CharacterAdapter
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeVM>() {
 
@@ -15,7 +14,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeVM>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewmodel = viewModel
-
+        hideLoading()
         setupRecyclerView()
     }
 

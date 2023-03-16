@@ -14,6 +14,10 @@ abstract class BaseVM : ViewModel(){
     val onError : LiveData<String>
         get() = _onError
 
+    protected val _showLoading = MutableLiveData<Boolean>()
+    val showLoading : LiveData<Boolean>
+        get() = _showLoading
+
     protected fun Disposable.addToDisposable() {
         compositeDisposable.add(this)
     }

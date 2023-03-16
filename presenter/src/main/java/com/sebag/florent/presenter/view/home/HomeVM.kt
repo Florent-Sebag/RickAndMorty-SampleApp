@@ -14,13 +14,13 @@ class HomeVM
 ): BaseVM() {
 
     fun launchPagingCharacterList(lifecycle: Lifecycle) {
+        characterAdapter.addLoadStateListener {
+            if (it.append is LoadState.Error)
+                _onError.value = (it.append as LoadState.Error).error.message
+        }
         characterListUseCase.getPagingCharacterList()
             .subscribe { data ->
-            characterAdapter.submitData(lifecycle, data)
-            characterAdapter.addLoadStateListener {
-                if (it.refresh is LoadState.Error)
-                    _onError.value = (it.refresh as LoadState.Error).error.message
-            }
-        }.addToDisposable()
+                characterAdapter.submitData(lifecycle, data)
+            }.addToDisposable()
     }
 }

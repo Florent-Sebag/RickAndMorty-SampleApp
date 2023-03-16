@@ -14,17 +14,21 @@ class DetailVM
     private val detailsUseCase: CharacterDetailsUseCase
 ): BaseVM() {
 
-        private val _characterDetails = MutableLiveData<CharacterModel>()
-        val characterDetails : LiveData<CharacterModel>
-        get() = _characterDetails
+    private val _characterDetails = MutableLiveData<CharacterModel>()
+    val characterDetails : LiveData<CharacterModel>
+    get() = _characterDetails
 
     fun getCharacterDetails(id: Int, position: Int) {
         detailsUseCase.getCharacterDetail(id, position)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy (
                 onSuccess = { _characterDetails.value = it },
-                onError = { _onError.value = "Error from getting character details" }
+                onError = { _onError.value = DETAILS_ERROR_MESSAGE }
             )
             .addToDisposable()
+    }
+
+    companion object {
+        const val DETAILS_ERROR_MESSAGE = "Error from getting character details"
     }
 }

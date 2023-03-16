@@ -45,8 +45,8 @@ abstract class BaseFragment<T : ViewDataBinding, U: BaseVM> : Fragment() {
     }
 
     private fun observeError() {
-        viewModel.onError.observe(viewLifecycleOwner, {
+        viewModel.onError.observe(viewLifecycleOwner) {
             Toast.makeText(context, it, Toast.LENGTH_LONG).show()
-        })
+        }
     }
 }

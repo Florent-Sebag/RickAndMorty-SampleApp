@@ -20,6 +20,10 @@ ext {
 
     GLIDE               = '4.12.0'
 
+    JUNIT               = '4.13.2'
+    MOCKITO             = '4.11.0'
+
+
     //==============================================================================================
     // Dependencies
     //==============================================================================================
@@ -68,7 +72,10 @@ ext {
 
             MATERIAL : "com.google.android.material:material:$MATERIAL",
 
-            GLIDE : "com.github.bumptech.glide:glide:4.12.0",
-            GLIDEA : "com.github.bumptech.glide:compiler:4.12.0"
+            GLIDE : "com.github.bumptech.glide:glide:$GLIDE",
+            GLIDEA : "com.github.bumptech.glide:compiler:$GLIDE",
+
+            JUNIT : "junit:junit:$JUNIT",
+            MOCKITO : "org.mockito:mockito-core:$MOCKITO"
     ]
 }

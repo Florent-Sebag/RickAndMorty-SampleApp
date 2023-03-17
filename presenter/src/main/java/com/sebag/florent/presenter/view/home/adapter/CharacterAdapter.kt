@@ -22,10 +22,12 @@ class CharacterAdapter @Inject constructor() :
         )
 
     override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
-        getItem(position)?.let { holder.bind(it) }
+        getItem(position)?.let {
+            holder.bind(it)
+        }
     }
 
-    inner class CharacterViewHolder(private val binding: ItemCharacterBinding) :
+    inner class CharacterViewHolder(val binding: ItemCharacterBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: CharacterModel) {

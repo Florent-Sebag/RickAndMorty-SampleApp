@@ -1,14 +1,13 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 
 android {
     compileSdkVersion 31
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.sebag.florent.marvel_sample_app"
+        applicationId "com.sebag.florent.rick_and_morty_sample_app"
         minSdkVersion 16
         targetSdkVersion 31
         versionCode 1

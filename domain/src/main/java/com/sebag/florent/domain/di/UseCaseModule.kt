@@ -1,8 +1,10 @@
 package com.sebag.florent.domain.di
 
-import com.sebag.florent.domain.repositories.MarvelRepository
+import com.sebag.florent.domain.repositories.RickAndMortyRepository
 import com.sebag.florent.domain.usecases.CharacterDetailsUseCase
+import com.sebag.florent.domain.usecases.CharacterDetailsUseCaseImpl
 import com.sebag.florent.domain.usecases.CharacterListUseCase
+import com.sebag.florent.domain.usecases.CharacterListUseCaseImpl
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -12,11 +14,11 @@ class UseCaseModule {
 
     @Provides
     @Singleton
-    fun provideCharacterListUseCase(marvelRepository: MarvelRepository) : CharacterListUseCase =
-        CharacterListUseCase(marvelRepository)
+    fun provideCharacterListUseCase(rickAndMortyRepository: RickAndMortyRepository) : CharacterListUseCase =
+        CharacterListUseCaseImpl(rickAndMortyRepository)
 
     @Provides
     @Singleton
-    fun provideCharacterDetailsUseCase(marvelRepository: MarvelRepository) : CharacterDetailsUseCase =
-        CharacterDetailsUseCase(marvelRepository)
+    fun provideCharacterDetailsUseCase(rickAndMortyRepository: RickAndMortyRepository) : CharacterDetailsUseCase =
+        CharacterDetailsUseCaseImpl(rickAndMortyRepository)
 }

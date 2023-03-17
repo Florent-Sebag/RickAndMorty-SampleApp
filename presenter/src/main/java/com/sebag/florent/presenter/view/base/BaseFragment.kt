@@ -10,6 +10,7 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import com.sebag.florent.presenter.HostActivity
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
@@ -35,7 +36,7 @@ abstract class BaseFragment<T : ViewDataBinding, U: BaseVM> : Fragment() {
             false
         )
         binding.lifecycleOwner = viewLifecycleOwner
-        observeError()
+        observeViewModel()
         return binding.root
     }
 
@@ -44,9 +45,15 @@ abstract class BaseFragment<T : ViewDataBinding, U: BaseVM> : Fragment() {
         AndroidSupportInjection.inject(this)
     }
 
-    private fun observeError() {
-        viewModel.onError.observe(viewLifecycleOwner, {
+    private fun observeViewModel() {
+        viewModel.onError.observe(viewLifecycleOwner) {
             Toast.makeText(context, it, Toast.LENGTH_LONG).show()
-        })
+        }
+        viewModel.showLoading.observe(viewLifecycleOwner) { showLoading ->
+            if (showLoading)
+                (activity as? HostActivity)?._showLoading?.value = View.VISIBLE
+            else
+                (activity as? HostActivity)?._showLoading?.value = View.INVISIBLE
+        }
     }
 }

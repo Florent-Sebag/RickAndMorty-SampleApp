@@ -43,6 +43,7 @@ class DetailVMTest {
         detailVM.getCharacterDetails(detailsMocks.characterMock.id, 0)
 
         assertEquals(detailsMocks.characterMock, detailVM.characterDetails.value)
+        assertEquals(false, detailVM.showLoading.value)
     }
 
     @Test
@@ -53,5 +54,6 @@ class DetailVMTest {
         detailVM.getCharacterDetails(detailsMocks.characterMock.id, 0)
 
         assertEquals(DetailVM.DETAILS_ERROR_MESSAGE, detailVM.onError.value)
+        assertEquals(false, detailVM.showLoading.value)
     }
 }

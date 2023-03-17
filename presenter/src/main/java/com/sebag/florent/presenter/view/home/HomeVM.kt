@@ -15,9 +15,9 @@ class HomeVM
 
     fun launchPagingCharacterList(lifecycle: Lifecycle) {
         characterAdapter.addLoadStateListener {
+            updateLoadingVisibility(it.refresh is LoadState.Loading)
             if (it.append is LoadState.Error)
                 _onError.value = (it.append as LoadState.Error).error.message
-            _showLoading.value = it.refresh is LoadState.Loading
         }
         characterListUseCase.getPagingCharacterList()
             .subscribe { data ->

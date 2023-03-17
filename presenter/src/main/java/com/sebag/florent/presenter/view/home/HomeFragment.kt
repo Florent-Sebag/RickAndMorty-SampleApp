@@ -14,7 +14,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeVM>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewmodel = viewModel
-        hideLoading()
         setupRecyclerView()
     }
 

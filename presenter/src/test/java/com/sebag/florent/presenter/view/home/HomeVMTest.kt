@@ -24,6 +24,7 @@ import org.mockito.Mockito.mock
 import org.mockito.MockitoAnnotations
 import org.mockito.junit.MockitoJUnitRunner
 import org.mockito.kotlin.any
+import org.mockito.kotlin.times
 import org.mockito.kotlin.verify
 import org.mockito.kotlin.whenever
 
@@ -58,8 +59,8 @@ class HomeVMTest {
         homeVM.launchPagingCharacterList(lifecycle)
 
         verify(characterAdapter).submitData(any(), any())
-        assertEquals(null, homeVM.onError.value)
         assertNull(homeVM.onError.value)
+        assertEquals(false, homeVM.showLoading.value)
     }
 
     @Test
@@ -79,5 +80,6 @@ class HomeVMTest {
         homeVM.launchPagingCharacterList(lifecycle)
 
         assertEquals(errorMessage, homeVM.onError.value)
+        assertEquals(false, homeVM.showLoading.value)
     }
 }

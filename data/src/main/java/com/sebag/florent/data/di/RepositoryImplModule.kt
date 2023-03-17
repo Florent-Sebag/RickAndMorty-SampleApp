@@ -1,9 +1,9 @@
 package com.sebag.florent.data.di
 
-import com.sebag.florent.data.api.MarvelApi
+import com.sebag.florent.data.api.RickAndMortyApi
 import com.sebag.florent.data.repositories.CharacterPagingSource
-import com.sebag.florent.data.repositories.MarvelRepositoryImpl
-import com.sebag.florent.domain.repositories.MarvelRepository
+import com.sebag.florent.data.repositories.RickAndMortyRepositoryImpl
+import com.sebag.florent.domain.repositories.RickAndMortyRepository
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
@@ -14,11 +14,14 @@ class RepositoryImplModule {
 
     @Provides
     @Singleton
-    fun provideCharacterPagingSource(service: MarvelApi, moshi: Moshi) : CharacterPagingSource =
+    fun provideCharacterPagingSource(service: RickAndMortyApi, moshi: Moshi) : CharacterPagingSource =
         CharacterPagingSource(service, moshi)
 
     @Singleton
     @Provides
-    fun provideMarvelRepository(service: MarvelApi, characterPagingSource: CharacterPagingSource) : MarvelRepository =
-        MarvelRepositoryImpl(service, characterPagingSource)
+    fun provideRickAndMortyRepository(
+        service: RickAndMortyApi,
+        characterPagingSource: CharacterPagingSource
+    ) : RickAndMortyRepository =
+        RickAndMortyRepositoryImpl(service, characterPagingSource)
 }

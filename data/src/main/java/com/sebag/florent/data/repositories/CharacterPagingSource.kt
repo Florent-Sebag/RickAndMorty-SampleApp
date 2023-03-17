@@ -2,7 +2,7 @@ package com.sebag.florent.data.repositories
 
 import androidx.paging.PagingState
 import androidx.paging.rxjava3.RxPagingSource
-import com.sebag.florent.data.api.MarvelApi
+import com.sebag.florent.data.api.RickAndMortyApi
 import com.sebag.florent.data.entities.ErrorEntity
 import com.sebag.florent.data.entities.ResponseEntity
 import com.sebag.florent.domain.models.CharacterModel
@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 class CharacterPagingSource
 @Inject constructor(
-    private val service: MarvelApi,
+    private val service: RickAndMortyApi,
     private val moshi: Moshi
 ): RxPagingSource<Int, CharacterModel>() {
 

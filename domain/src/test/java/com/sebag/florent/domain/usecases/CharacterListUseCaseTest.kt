@@ -1,7 +1,7 @@
 package com.sebag.florent.domain.usecases
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.sebag.florent.domain.repositories.MarvelRepository
+import com.sebag.florent.domain.repositories.RickAndMortyRepository
 import io.reactivex.rxjava3.android.plugins.RxAndroidPlugins
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.junit.Before
@@ -19,20 +19,20 @@ class CharacterListUseCaseTest {
     val instantExecutorRule = InstantTaskExecutorRule()
 
     @Mock
-    private lateinit var marvelRepository : MarvelRepository
+    private lateinit var rickAndMortyRepository : RickAndMortyRepository
 
     private lateinit var characterListUseCase: CharacterListUseCase
 
     @Before
     fun setup() {
         RxAndroidPlugins.setInitMainThreadSchedulerHandler { Schedulers.trampoline() }
-        characterListUseCase = CharacterListUseCaseImpl(marvelRepository)
+        characterListUseCase = CharacterListUseCaseImpl(rickAndMortyRepository)
     }
 
     @Test
     fun `getCharacterDetail should call repository`() {
         characterListUseCase.getPagingCharacterList()
 
-        verify(marvelRepository).retrieveCharacterList()
+        verify(rickAndMortyRepository).retrieveCharacterList()
     }
 }

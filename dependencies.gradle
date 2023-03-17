@@ -21,7 +21,11 @@ ext {
     GLIDE               = '4.12.0'
 
     JUNIT               = '4.13.2'
-    MOCKITO             = '4.11.0'
+
+    MOCKITO             = '3.2.0'
+    MOCKITO_CORE        = '4.11.0'
+
+    CORE_TESTING        = '2.2.0'
 
 
     //==============================================================================================
@@ -76,6 +80,13 @@ ext {
             GLIDEA : "com.github.bumptech.glide:compiler:$GLIDE",
 
             JUNIT : "junit:junit:$JUNIT",
-            MOCKITO : "org.mockito:mockito-core:$MOCKITO"
+
+            MOCKITO : [
+                    "org.mockito:mockito-core:$MOCKITO_CORE",
+                    "org.mockito.kotlin:mockito-kotlin:$MOCKITO",
+                    "org.mockito:mockito-inline:$MOCKITO"
+            ],
+
+            CORETESTING : "androidx.arch.core:core-testing:$CORE_TESTING"
     ]
 }

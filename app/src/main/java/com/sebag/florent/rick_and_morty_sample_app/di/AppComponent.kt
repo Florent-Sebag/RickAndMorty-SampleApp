@@ -1,8 +1,8 @@
-package com.sebag.florent.marvel_sample_app.di
+package com.sebag.florent.rick_and_morty_sample_app.di
 
 import com.sebag.florent.data.di.*
 import com.sebag.florent.domain.di.UseCaseModule
-import com.sebag.florent.marvel_sample_app.MarvelApp
+import com.sebag.florent.rick_and_morty_sample_app.RickAndMortyApp
 import com.sebag.florent.presenter.di.AdapterModule
 import com.sebag.florent.presenter.di.BuilderModule
 import com.sebag.florent.presenter.di.ViewModelModule
@@ -32,9 +32,9 @@ interface AppComponent {
     @Component.Builder
     interface Builder {
         @BindsInstance
-        fun application(app: MarvelApp): Builder
+        fun application(app: RickAndMortyApp): Builder
         fun build(): AppComponent
     }
 
-    fun inject(app: MarvelApp)
+    fun inject(app: RickAndMortyApp)
 }

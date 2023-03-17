@@ -5,7 +5,7 @@ import com.sebag.florent.domain.models.CharacterModel
 import io.reactivex.rxjava3.core.Flowable
 import io.reactivex.rxjava3.core.Single
 
-interface MarvelRepository {
+interface RickAndMortyRepository {
 
     fun retrieveCharacterList() : Flowable<PagingData<CharacterModel>>
 

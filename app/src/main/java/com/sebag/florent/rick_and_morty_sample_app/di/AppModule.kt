@@ -1,8 +1,8 @@
-package com.sebag.florent.marvel_sample_app.di
+package com.sebag.florent.rick_and_morty_sample_app.di
 
 import android.content.Context
 import androidx.lifecycle.ViewModelProvider
-import com.sebag.florent.marvel_sample_app.MarvelApp
+import com.sebag.florent.rick_and_morty_sample_app.RickAndMortyApp
 import com.sebag.florent.presenter.di.utils.ViewModelFactory
 import dagger.Module
 import dagger.Provides
@@ -12,7 +12,7 @@ import javax.inject.Singleton
 class AppModule {
 
     @Provides
-    fun provideContext(baseApp: MarvelApp) : Context = baseApp.applicationContext
+    fun provideContext(baseApp: RickAndMortyApp) : Context = baseApp.applicationContext
 
     @Provides
     @Singleton

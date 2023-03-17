@@ -4,19 +4,19 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.rxjava3.flowable
-import com.sebag.florent.data.api.MarvelApi
+import com.sebag.florent.data.api.RickAndMortyApi
 import com.sebag.florent.domain.models.CharacterModel
-import com.sebag.florent.domain.repositories.MarvelRepository
+import com.sebag.florent.domain.repositories.RickAndMortyRepository
 import io.reactivex.rxjava3.core.Flowable
 import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
 
-class MarvelRepositoryImpl
+class RickAndMortyRepositoryImpl
 @Inject constructor(
-    private val service: MarvelApi,
+    private val service: RickAndMortyApi,
     private val characterPagingSource: CharacterPagingSource
-) : MarvelRepository {
+) : RickAndMortyRepository {
 
     override fun retrieveCharacterList() : Flowable<PagingData<CharacterModel>> {
         return Pager(

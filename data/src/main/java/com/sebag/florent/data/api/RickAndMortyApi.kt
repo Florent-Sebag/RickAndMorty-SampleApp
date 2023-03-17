@@ -7,7 +7,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-interface MarvelApi {
+interface RickAndMortyApi {
 
     @GET("character")
     fun fetchCharacterListFromApi(@Query("page") page: Int) : Single<ResponseEntity>

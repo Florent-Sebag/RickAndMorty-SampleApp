@@ -32,7 +32,7 @@ The mocked data is sent thanks to a OkHttp Interceptor.
  
 - Paging 3 - Infinite scroll (Implemented with RxJava) 
 - Material design - Front elements
-- Glide - Printing images
+- Glide - Printing & cache images
 
 - Junit - Unit testing
 - Mockito - Mocking data in unit tests 
